@@ -3,409 +3,428 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Takealot Mid-Fidelity Wireframe Prototype — 22 Screens</title>
+  <title>Takealot Prototype — 22 Screens</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">MAF 26XS UX/UI Redesign</p>
-      <h1>Takealot Interactive Prototype — 22 Screens</h1>
-      <p class="subtitle">Smart Product Discovery + One-Page Checkout. Includes onboarding, error states, success pop-ups and a full end-to-end shopping journey.</p>
+
+<header class="topbar">
+  <div>
+    <p class="eyebrow">MAF 26XS UX/UI Redesign</p>
+    <h1>Takealot Interactive Prototype</h1>
+    <p class="subtitle">22 screens · Smart Discovery + One-Page Checkout</p>
+  </div>
+  <nav class="jumpnav">
+    <a href="#" data-goto="welcome">Restart</a>
+    <a href="#" data-goto="s1-home">Discovery</a>
+    <a href="#" data-goto="s2-cart">Checkout</a>
+    <a href="#" data-goto="s2-profile">Profile</a>
+  </nav>
+</header>
+
+<main id="stage">
+
+  <!-- ============ 01 WELCOME ============ -->
+  <section class="screen active" id="welcome">
+    <div class="phone">
+      <div class="phone-status">09:39 <span>▵ ◌ ▣</span></div>
+      <div class="brand-screen">
+        <div class="logo-mark">t</div>
+        <p class="eyebrow">Redesigned shopping flow</p>
+        <h2>Welcome to Takealot</h2>
+        <p class="hint center">A faster mobile shopping experience.</p>
+        <div class="onboarding-card">
+          <b>Prototype goals</b>
+          <p>Reduce product overload, improve decision-making, speed up checkout.</p>
+        </div>
+        <button class="primary" data-goto="login">Get started</button>
+        <button class="secondary" data-goto="s1-home">Continue as guest</button>
+      </div>
     </div>
-    <nav class="jumpnav" aria-label="Prototype navigation">
-      <a href="#start-flow">Onboarding</a>
-      <a href="#design-system">Design system</a>
-      <a href="#solution-1">Solution 1</a>
-      <a href="#solution-2">Solution 2</a>
-      <a href="#solution-3">Profile</a>
-    </nav>
-  </header>
+  </section>
 
-  <main>
-    <!-- ============ ONBOARDING ============ -->
-    <section id="start-flow" class="solution">
-      <div class="section-title">
-        <p class="eyebrow">Screens 1–3</p>
-        <h2>Onboarding + Login</h2>
-        <p>Welcome, Login, and Login Error State.</p>
+  <!-- ============ 02 LOGIN ============ -->
+  <section class="screen" id="login">
+    <div class="phone">
+      <div class="phone-status">09:40 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-back>‹</button><strong>Login</strong><button>Help</button></div>
+      <h3>Sign in to continue</h3>
+      <p class="hint">Saved details make checkout faster.</p>
+      <label class="input-label">Email<input id="login-email" value="nomsa@studentmail.co.za" /></label>
+      <label class="input-label">Password<input id="login-pass" type="password" value="password" /></label>
+      <label class="checkline"><input type="checkbox" checked /> Keep me signed in</label>
+      <button class="primary" data-goto="s1-home">Login</button>
+      <button class="secondary" data-goto="login-error">Show error state</button>
+    </div>
+  </section>
+
+  <!-- ============ 03 LOGIN ERROR ============ -->
+  <section class="screen" id="login-error">
+    <div class="phone">
+      <div class="phone-status">09:40 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-back>‹</button><strong>Login</strong><button>Help</button></div>
+      <h3>Sign in to continue</h3>
+      <label class="input-label error">Email<input value="nomsa@studentmail.co.za" /></label>
+      <label class="input-label error">Password<input type="password" value="wrongpass" /></label>
+      <p class="error-msg">⚠ Incorrect email or password. Please try again.</p>
+      <label class="checkline"><input type="checkbox" /> Keep me signed in</label>
+      <button class="primary" disabled>Login</button>
+      <button class="secondary" data-goto="login">Back to login</button>
+    </div>
+  </section>
+
+  <!-- ============ 04 HOME ============ -->
+  <section class="screen" id="s1-home">
+    <div class="phone">
+      <div class="phone-status">09:41 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="login">‹</button><strong>takealot</strong><button data-goto="s2-cart">Cart <span id="cart-count">0</span></button></div>
+      <div class="searchbox" id="search-input" contenteditable="true" data-placeholder="Search for laptops, books, appliances..."></div>
+      <div class="hero-card">
+        <p>Smart search</p>
+        <h3>Find the right item faster</h3>
+        <small>Suggestions appear before results.</small>
       </div>
-      <div class="frames">
-        <article class="phone" id="welcome">
-          <div class="phone-status">09:39 <span>▵ ◌ ▣</span></div>
-          <div class="brand-screen">
-            <div class="logo-mark">t</div>
-            <p class="eyebrow">Redesigned shopping flow</p>
-            <h2>Welcome to Takealot</h2>
-            <p class="hint center">A faster mobile shopping experience with smart discovery and a simplified checkout journey.</p>
-            <div class="onboarding-card">
-              <b>Prototype goals</b>
-              <p>Reduce product overload, improve decision-making and speed up checkout.</p>
-            </div>
-            <a class="primary" href="#login">Get started</a>
-            <a class="secondary" href="#s1-home">Continue as guest</a>
-          </div>
-        </article>
-
-        <article class="phone" id="login">
-          <div class="phone-status">09:40 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#welcome">‹</a><strong>Login</strong><button>Help</button></div>
-          <h3>Sign in to continue</h3>
-          <p class="hint">Saved address and payment details make the one-page checkout faster.</p>
-          <label class="input-label">Email<input value="nomsa@studentmail.co.za" /></label>
-          <label class="input-label">Password<input type="password" value="password" /></label>
-          <label class="checkline"><input type="checkbox" checked /> Keep me signed in</label>
-          <a class="primary" href="#s1-home">Login</a>
-          <a class="secondary" href="#login-error">Show error state</a>
-        </article>
-
-        <article class="phone" id="login-error">
-          <div class="phone-status">09:40 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#login">‹</a><strong>Login</strong><button>Help</button></div>
-          <h3>Sign in to continue</h3>
-          <label class="input-label error">Email<input value="nomsa@studentmail.co.za" /></label>
-          <label class="input-label error">Password<input type="password" value="wrongpass" /></label>
-          <p class="error-msg">⚠ Incorrect email or password. Please try again.</p>
-          <label class="checkline"><input type="checkbox" /> Keep me signed in</label>
-          <button class="primary disabled" disabled>Login</button>
-          <a class="secondary" href="#login">Back to login</a>
-        </article>
+      <h4>Popular shortcuts</h4>
+      <div class="chiprow">
+        <button class="chip" data-search="same day">Same day</button>
+        <button class="chip" data-search="deals">Deals</button>
+        <button class="chip" data-search="student tech">Student tech</button>
       </div>
-    </section>
+      <h4>Smart suggestions</h4>
+      <button class="list-card" data-search="laptop under R8000"><span>Laptop under R8000</span><b>›</b></button>
+      <button class="list-card" data-search="wireless mouse"><span>Wireless mouse for study</span><b>›</b></button>
+      <button class="primary" data-search="laptop under R8000">Search laptops</button>
+      <button class="secondary" data-goto="s1-noresults">Try empty search</button>
+    </div>
+  </section>
 
-    <!-- ============ DESIGN SYSTEM ============ -->
-    <section id="design-system" class="panel wide">
-      <div class="section-title">
-        <p class="eyebrow">Included in Figma file requirement</p>
-        <h2>Design system</h2>
+  <!-- ============ 05 RESULTS ============ -->
+  <section class="screen" id="s1-results">
+    <div class="phone">
+      <div class="phone-status">09:42 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-home">‹</button><strong>Results</strong><button data-goto="s2-cart">Cart</button></div>
+      <div class="searchbox active" id="results-query">laptop under R8000</div>
+      <div class="toolbar">
+        <button data-goto="s1-filters">Smart filters</button>
+        <button>Sort: Best match</button>
       </div>
-      <div class="system-grid">
-        <article>
-          <h3>Colour palette</h3>
-          <div class="swatches">
-            <span style="--sw:#0B4EA2">Primary blue</span>
-            <span style="--sw:#F2F6FC">Surface</span>
-            <span style="--sw:#1F2937">Text</span>
-            <span style="--sw:#F59E0B">Attention</span>
-            <span style="--sw:#E5E7EB">Borders</span>
-            <span style="--sw:#0F8A3B">Success</span>
-            <span style="--sw:#DC2626">Error</span>
-          </div>
-        </article>
-        <article>
-          <h3>Typography</h3>
-          <p><strong>Headings:</strong> Inter / Arial Bold</p>
-          <p><strong>Body:</strong> Inter / Arial Regular</p>
-          <p><strong>Buttons:</strong> 14px uppercase medium</p>
-        </article>
-        <article>
-          <h3>Core components</h3>
-          <p>Search bar, smart suggestion chips, filter drawer, comparison cards, one-page checkout blocks, sticky CTA buttons, toast overlays, error banners.</p>
-        </article>
-        <article>
-          <h3>Button states</h3>
-          <p>Default · Pressed · Loading · Success · Disabled · Error</p>
-        </article>
+      <div class="chiprow">
+        <button class="chip">In stock</button>
+        <button class="chip">4★+</button>
+        <button class="chip">Fast delivery</button>
       </div>
-    </section>
-
-    <!-- ============ SOLUTION 1 ============ -->
-    <section id="solution-1" class="solution">
-      <div class="section-title">
-        <p class="eyebrow">Solution 1: Smart Product Discovery</p>
-        <h2>Screens 4–11</h2>
-        <p>Purpose: reduce information overload during product search through smarter suggestions, simplified filters and comparison.</p>
+      <div class="product-card">
+        <div class="thumb"></div>
+        <div>
+          <h4>Lenova StudyBook 14</h4>
+          <p>R7 499 • Tomorrow</p>
+          <button class="mini-link" data-compare="StudyBook">Add to compare</button>
+        </div>
       </div>
-      <div class="frames">
-        <!-- 4 Home -->
-        <article class="phone" id="s1-home">
-          <div class="phone-status">09:41 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#login">‹</a><strong>takealot</strong><button>Cart 0</button></div>
-          <div class="searchbox">Search for laptops, books, appliances...</div>
-          <div class="hero-card">
-            <p>Smart search</p>
-            <h3>Find the right item faster</h3>
-            <small>Suggestions appear before results so users do not face hundreds of products first.</small>
-          </div>
-          <h4>Popular shortcuts</h4>
-          <div class="chiprow"><button>Same day</button><button>Deals</button><button>Student tech</button></div>
-          <h4>Smart suggestions</h4>
-          <a class="list-card" href="#s1-results"><span>Laptop under R8000</span><b>›</b></a>
-          <a class="list-card" href="#s1-results"><span>Wireless mouse for study</span><b>›</b></a>
-          <a class="primary" href="#s1-results">Search laptops</a>
-          <a class="secondary" href="#s1-noresults">Try empty search</a>
-        </article>
-
-        <!-- 5 Results -->
-        <article class="phone" id="s1-results">
-          <div class="phone-status">09:42 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-home">‹</a><strong>Results</strong><button>Cart</button></div>
-          <div class="searchbox active">laptop under R8000</div>
-          <div class="toolbar"><a href="#s1-filters">Smart filters</a><button>Sort: Best match</button></div>
-          <div class="chiprow"><button>In stock</button><button>4★+</button><button>Fast delivery</button></div>
-          <div class="product-card"><div class="thumb"></div><div><h4>Lenova StudyBook 14</h4><p>R7 499 • Delivered tomorrow</p><a class="mini-link" href="#s1-compare">Add to compare</a></div></div>
-          <div class="product-card"><div class="thumb"></div><div><h4>UltraNote 15</h4><p>R7 999 • Free delivery</p><a class="mini-link" href="#s1-compare">Add to compare</a></div></div>
-          <a class="primary" href="#s1-compare">Compare selected</a>
-        </article>
-
-        <!-- 6 No Results -->
-        <article class="phone" id="s1-noresults">
-          <div class="phone-status">09:42 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-home">‹</a><strong>Results</strong><button>Cart</button></div>
-          <div class="searchbox active">gaming chair under R200</div>
-          <div class="empty-state">
-            <div class="empty-icon">⌕</div>
-            <h3>No products found</h3>
-            <p class="hint center">Try changing your search or removing some filters.</p>
-          </div>
-          <a class="primary" href="#s1-home">Clear search</a>
-          <a class="secondary" href="#s1-results">Back to results</a>
-        </article>
-
-        <!-- 7 Filters -->
-        <article class="phone" id="s1-filters">
-          <div class="phone-status">09:43 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-results">‹</a><strong>Smart filters</strong><button>Reset</button></div>
-          <p class="hint">Only the most useful filters are shown first. Advanced filters stay collapsed.</p>
-          <label class="field">Budget range <span>R5000 - R8000</span></label>
-          <label class="field">Delivery speed <span>Today / Tomorrow</span></label>
-          <label class="field">Brand <span>Top matched brands</span></label>
-          <label class="field">Rating <span>4 stars and above</span></label>
-          <details><summary>Advanced filters</summary><p>Processor, storage, RAM, seller, warranty.</p></details>
-          <a class="primary" href="#s1-filtered">Apply filters</a>
-          <a class="secondary" href="#s1-results">Cancel</a>
-        </article>
-
-        <!-- 8 Filtered Results -->
-        <article class="phone" id="s1-filtered">
-          <div class="phone-status">09:43 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-filters">‹</a><strong>Filtered results</strong><button>Cart</button></div>
-          <div class="searchbox active">laptop under R8000</div>
-          <div class="chiprow"><button class="chip-active">In stock ✕</button><button class="chip-active">4★+ ✕</button><button class="chip-active">Fast delivery ✕</button></div>
-          <p class="hint">3 results</p>
-          <div class="product-card"><div class="thumb"></div><div><h4>Lenova StudyBook 14</h4><p>R7 499 • Tomorrow</p><a class="mini-link" href="#s1-compare">Add to compare</a></div></div>
-          <div class="product-card"><div class="thumb"></div><div><h4>UltraNote 15</h4><p>R7 999 • Tomorrow</p><a class="mini-link" href="#s1-compare">Add to compare</a></div></div>
-          <a class="primary" href="#s1-compare">Compare selected</a>
-        </article>
-
-        <!-- 9 Compare -->
-        <article class="phone" id="s1-compare">
-          <div class="phone-status">09:44 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-results">‹</a><strong>Compare</strong><button>2 items</button></div>
-          <div class="compare-grid">
-            <div><div class="thumb large"></div><h4>StudyBook</h4><p>R7 499</p><button class="mini-link">Remove</button></div>
-            <div><div class="thumb large"></div><h4>UltraNote</h4><p>R7 999</p><button class="mini-link">Remove</button></div>
-          </div>
-          <table>
-            <tr><th>Delivery</th><td>Tomorrow</td><td>2 days</td></tr>
-            <tr><th>Rating</th><td>4.6</td><td>4.4</td></tr>
-            <tr><th>Storage</th><td>512GB</td><td>256GB</td></tr>
-            <tr><th>Warranty</th><td>24 months</td><td>12 months</td></tr>
-          </table>
-          <a class="primary" href="#s1-detail">Choose StudyBook</a>
-        </article>
-
-        <!-- 10 Product Details -->
-        <article class="phone" id="s1-detail">
-          <div class="phone-status">09:45 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-compare">‹</a><strong>Product</strong><button>♡</button></div>
-          <div class="thumb hero"></div>
-          <h3>Lenova StudyBook 14</h3>
-          <p class="price">R7 499</p>
-          <div class="list-card"><span>Why this matches: budget, rating, delivery</span></div>
-          <div class="list-card"><span>Delivery tomorrow to Cape Town</span></div>
-          <a class="primary" href="#s1-addsuccess">Add to cart</a>
-        </article>
-
-        <!-- 11 Add-to-Cart Success -->
-        <article class="phone" id="s1-addsuccess">
-          <div class="phone-status">09:45 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-detail">‹</a><strong>Product</strong><button>♡</button></div>
-          <div class="thumb hero"></div>
-          <h3>Lenova StudyBook 14</h3>
-          <p class="price">R7 499</p>
-          <div class="toast toast-success">
-            <b>✓ Added to cart</b>
-            <p>Lenova StudyBook 14 has been added to your cart.</p>
-            <div class="toast-actions">
-              <a class="mini-link" href="#s2-cart">View cart</a>
-              <a class="mini-link" href="#s1-results">Continue shopping</a>
-            </div>
-          </div>
-          <a class="primary" href="#s2-cart">Go to cart</a>
-        </article>
+      <div class="product-card">
+        <div class="thumb"></div>
+        <div>
+          <h4>UltraNote 15</h4>
+          <p>R7 999 • Free delivery</p>
+          <button class="mini-link" data-compare="UltraNote">Add to compare</button>
+        </div>
       </div>
-    </section>
+      <button class="primary" data-goto="s1-compare">Compare selected (<span id="compare-count">0</span>)</button>
+    </div>
+  </section>
 
-    <!-- ============ SOLUTION 2 ============ -->
-    <section id="solution-2" class="solution">
-      <div class="section-title">
-        <p class="eyebrow">Solution 2: One-Page Checkout</p>
-        <h2>Screens 12–21</h2>
-        <p>Purpose: reduce cart abandonment by combining address, delivery, payment and summary into one clear path.</p>
+  <!-- ============ 06 NO RESULTS ============ -->
+  <section class="screen" id="s1-noresults">
+    <div class="phone">
+      <div class="phone-status">09:42 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-home">‹</button><strong>Results</strong><button data-goto="s2-cart">Cart</button></div>
+      <div class="searchbox active">gaming chair under R200</div>
+      <div class="empty-state">
+        <div class="empty-icon">⌕</div>
+        <h3>No products found</h3>
+        <p class="hint center">Try changing your search or removing some filters.</p>
       </div>
-      <div class="frames">
-        <!-- 12 Cart -->
-        <article class="phone" id="s2-cart">
-          <div class="phone-status">09:46 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s1-detail">‹</a><strong>Cart</strong><button>Help</button></div>
-          <div class="product-card"><div class="thumb"></div><div><h4>StudyBook 14</h4><p>R7 499 • Qty 1</p><a class="mini-link" href="#s2-remove">Remove</a></div></div>
-          <div class="summary"><p>Items <b>R7 499</b></p><p>Delivery <b>Calculated next</b></p><p>Total <b>R7 499</b></p></div>
-          <a class="primary" href="#s2-checkout">Checkout</a>
-        </article>
+      <button class="primary" data-goto="s1-home">Clear search</button>
+      <button class="secondary" data-goto="s1-results">Back to results</button>
+    </div>
+  </section>
 
-        <!-- 13 Remove Confirmation -->
-        <article class="phone" id="s2-remove">
-          <div class="phone-status">09:46 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-cart">‹</a><strong>Cart</strong><button>Help</button></div>
-          <div class="product-card"><div class="thumb"></div><div><h4>StudyBook 14</h4><p>R7 499 • Qty 1</p></div></div>
-          <div class="modal-overlay">
-            <div class="modal">
-              <h3>Remove this item?</h3>
-              <p class="hint">This action cannot be undone.</p>
-              <a class="primary" href="#s2-cart">Remove</a>
-              <a class="secondary" href="#s2-cart">Cancel</a>
-            </div>
-          </div>
-        </article>
+  <!-- ============ 07 FILTERS ============ -->
+  <section class="screen" id="s1-filters">
+    <div class="phone">
+      <div class="phone-status">09:43 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-results">‹</button><strong>Smart filters</strong><button id="reset-filters">Reset</button></div>
+      <p class="hint">Only the most useful filters are shown first.</p>
+      <label class="field filter-toggle">Budget range <span>R5000 - R8000</span></label>
+      <label class="field filter-toggle">Delivery speed <span>Today / Tomorrow</span></label>
+      <label class="field filter-toggle">Brand <span>Top matched brands</span></label>
+      <label class="field filter-toggle">Rating <span>4 stars and above</span></label>
+      <details><summary>Advanced filters</summary><p>Processor, storage, RAM, seller, warranty.</p></details>
+      <button class="primary" data-goto="s1-filtered">Apply filters</button>
+      <button class="secondary" data-goto="s1-results">Cancel</button>
+    </div>
+  </section>
 
-        <!-- 14 One-Page Checkout -->
-        <article class="phone" id="s2-checkout">
-          <div class="phone-status">09:47 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-cart">‹</a><strong>One-page checkout</strong><button>1/1</button></div>
-          <div class="progress"><span></span></div>
-          <section class="checkout-block"><h4>1. Delivery address <a href="#s2-address">Edit</a></h4><p>District Six, Cape Town</p></section>
-          <section class="checkout-block"><h4>2. Delivery option</h4><label><input type="radio" checked /> Tomorrow - R65</label><label><input type="radio" /> Standard - Free</label></section>
-          <section class="checkout-block"><h4>3. Payment method <a href="#s2-payment">Change</a></h4><p>Saved card ending 2048</p></section>
-          <section class="checkout-block"><h4>4. Order summary</h4><p>Total: <b>R7 564</b></p></section>
-          <a class="primary" href="#s2-review">Review order</a>
-        </article>
-
-        <!-- 15 Edit Address -->
-        <article class="phone" id="s2-address">
-          <div class="phone-status">09:48 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-checkout">‹</a><strong>Edit address</strong><button>Save</button></div>
-          <label class="input-label">Recipient<input value="Nomsa Dlamini" /></label>
-          <label class="input-label">Street address<input value="District Six Campus" /></label>
-          <label class="input-label">City<input value="Cape Town" /></label>
-          <label class="input-label">Delivery notes<textarea>Call when arriving at reception.</textarea></label>
-          <a class="primary" href="#s2-checkout">Save and return</a>
-          <a class="secondary" href="#s2-address-error">Show error state</a>
-        </article>
-
-        <!-- 16 Address Error -->
-        <article class="phone" id="s2-address-error">
-          <div class="phone-status">09:48 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-checkout">‹</a><strong>Edit address</strong><button>Save</button></div>
-          <label class="input-label">Recipient<input value="Nomsa Dlamini" /></label>
-          <label class="input-label error">Street address<input value="" placeholder="Required" /></label>
-          <p class="error-msg">⚠ Please enter your street address.</p>
-          <label class="input-label">City<input value="Cape Town" /></label>
-          <a class="primary" href="#s2-checkout">Save and return</a>
-        </article>
-
-        <!-- 17 Payment Selection -->
-        <article class="phone" id="s2-payment">
-          <div class="phone-status">09:48 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-checkout">‹</a><strong>Payment</strong><button>Help</button></div>
-          <h4>Select payment method</h4>
-          <label class="checkline"><input type="radio" name="pay" checked /> Saved card ending 2048</label>
-          <label class="checkline"><input type="radio" name="pay" /> New card</label>
-          <label class="checkline"><input type="radio" name="pay" /> EFT / voucher</label>
-          <label class="checkline"><input type="radio" name="pay" /> Pay on delivery</label>
-          <a class="primary" href="#s2-checkout">Confirm payment</a>
-        </article>
-
-        <!-- 18 Review Order -->
-        <article class="phone" id="s2-review">
-          <div class="phone-status">09:49 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-checkout">‹</a><strong>Review order</strong><button>Edit</button></div>
-          <p class="hint">Final confirmation keeps the flow safe without forcing users through many separate pages.</p>
-          <div class="product-card"><div class="thumb"></div><div><h4>StudyBook 14</h4><p>R7 499 • Qty 1</p></div></div>
-          <div class="summary"><p>Delivery address <b>Cape Town</b></p><p>Delivery option <b>Tomorrow</b></p><p>Payment <b>Card 2048</b></p><p>Total <b>R7 564</b></p></div>
-          <a class="primary" href="#s2-processing">Place order</a>
-        </article>
-
-        <!-- 19 Processing -->
-        <article class="phone" id="s2-processing">
-          <div class="phone-status">09:49 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><strong>Processing order</strong><button>Please wait</button></div>
-          <div class="loading-screen">
-            <div class="spinner"></div>
-            <h3>Processing your order…</h3>
-            <p class="hint center">Do not close this screen.</p>
-          </div>
-          <a class="secondary" href="#s2-confirm">Skip to confirmation</a>
-        </article>
-
-        <!-- 20 Order Placed -->
-        <article class="phone" id="s2-confirm">
-          <div class="phone-status">09:50 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><strong>Order placed</strong><button>Done</button></div>
-          <div class="success">✓</div>
-          <h3 class="center">Thank you, Nomsa</h3>
-          <p class="hint center">Your order is confirmed. Delivery tracking is now visible on this page.</p>
-          <div class="timeline"><p><b>Confirmed</b></p><p>Packing</p><p>Out for delivery</p></div>
-          <a class="primary" href="#s2-tracking">Track order</a>
-          <a class="secondary" href="#welcome">Back to start</a>
-        </article>
-
-        <!-- 21 Order Tracking -->
-        <article class="phone" id="s2-tracking">
-          <div class="phone-status">09:51 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-confirm">‹</a><strong>Track order</strong><button>Help</button></div>
-          <h3>Order #TK-2048</h3>
-          <p class="hint">Estimated delivery: Tomorrow, 10:00–14:00</p>
-          <div class="timeline">
-            <p><b>✓ Confirmed</b> — 09:50</p>
-            <p><b>✓ Packing</b> — 10:15</p>
-            <p><b>→ Out for delivery</b> — in progress</p>
-            <p>Delivered</p>
-          </div>
-          <a class="primary" href="#s2-profile">View profile</a>
-        </article>
+  <!-- ============ 08 FILTERED ============ -->
+  <section class="screen" id="s1-filtered">
+    <div class="phone">
+      <div class="phone-status">09:43 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-filters">‹</button><strong>Filtered results</strong><button data-goto="s2-cart">Cart</button></div>
+      <div class="searchbox active">laptop under R8000</div>
+      <div class="chiprow">
+        <button class="chip chip-active">In stock ✕</button>
+        <button class="chip chip-active">4★+ ✕</button>
+        <button class="chip chip-active">Fast delivery ✕</button>
       </div>
-    </section>
+      <p class="hint">3 results</p>
+      <div class="product-card"><div class="thumb"></div><div><h4>Lenova StudyBook 14</h4><p>R7 499 • Tomorrow</p><button class="mini-link" data-compare="StudyBook">Add to compare</button></div></div>
+      <div class="product-card"><div class="thumb"></div><div><h4>UltraNote 15</h4><p>R7 999 • Tomorrow</p><button class="mini-link" data-compare="UltraNote">Add to compare</button></div></div>
+      <button class="primary" data-goto="s1-compare">Compare selected (<span id="compare-count-2">0</span>)</button>
+    </div>
+  </section>
 
-    <!-- ============ SOLUTION 3: PROFILE ============ -->
-    <section id="solution-3" class="solution">
-      <div class="section-title">
-        <p class="eyebrow">Solution 3: Profile / Settings</p>
-        <h2>Screen 22</h2>
-        <p>Account management: personal details, saved addresses, payment methods and notifications.</p>
+  <!-- ============ 09 COMPARE ============ -->
+  <section class="screen" id="s1-compare">
+    <div class="phone">
+      <div class="phone-status">09:44 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-results">‹</button><strong>Compare</strong><button>2 items</button></div>
+      <div class="compare-grid">
+        <div><div class="thumb large"></div><h4>StudyBook</h4><p>R7 499</p></div>
+        <div><div class="thumb large"></div><h4>UltraNote</h4><p>R7 999</p></div>
       </div>
-      <div class="frames">
-        <article class="phone" id="s2-profile">
-          <div class="phone-status">09:52 <span>▵ ◌ ▣</span></div>
-          <div class="appbar"><a href="#s2-tracking">‹</a><strong>Profile</strong><button>Save</button></div>
-          <div class="profile-head">
-            <div class="avatar">ND</div>
-            <div><h3>Nomsa Dlamini</h3><p class="hint">nomsa@studentmail.co.za</p></div>
-          </div>
-          <h4>Personal details</h4>
-          <label class="input-label">Full name<input value="Nomsa Dlamini" /></label>
-          <label class="input-label">Phone<input value="+27 82 000 0000" /></label>
+      <table>
+        <tr><th>Delivery</th><td>Tomorrow</td><td>2 days</td></tr>
+        <tr><th>Rating</th><td>4.6</td><td>4.4</td></tr>
+        <tr><th>Storage</th><td>512GB</td><td>256GB</td></tr>
+        <tr><th>Warranty</th><td>24 months</td><td>12 months</td></tr>
+      </table>
+      <button class="primary" data-goto="s1-detail">Choose StudyBook</button>
+    </div>
+  </section>
 
-          <h4>Saved addresses</h4>
-          <div class="list-card"><span>Home — District Six</span><b>›</b></div>
-          <div class="list-card"><span>Work — CBD</span><b>›</b></div>
+  <!-- ============ 10 PRODUCT DETAILS ============ -->
+  <section class="screen" id="s1-detail">
+    <div class="phone">
+      <div class="phone-status">09:45 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-compare">‹</button><strong>Product</strong><button>♡</button></div>
+      <div class="thumb hero"></div>
+      <h3>Lenova StudyBook 14</h3>
+      <p class="price">R7 499</p>
+      <div class="list-card"><span>Why this matches: budget, rating, delivery</span></div>
+      <div class="list-card"><span>Delivery tomorrow to Cape Town</span></div>
+      <button class="primary" id="add-to-cart">Add to cart</button>
+    </div>
+  </section>
 
-          <h4>Payment methods</h4>
-          <div class="list-card"><span>Card ending 2048</span><b>›</b></div>
-          <div class="list-card"><span>EFT / voucher</span><b>›</b></div>
-
-          <h4>Notifications</h4>
-          <label class="checkline"><input type="checkbox" checked /> Order updates</label>
-          <label class="checkline"><input type="checkbox" checked /> Deals and promotions</label>
-
-          <a class="primary" href="#welcome">Sign out</a>
-        </article>
+  <!-- ============ 11 ADD SUCCESS ============ -->
+  <section class="screen" id="s1-addsuccess">
+    <div class="phone">
+      <div class="phone-status">09:45 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-detail">‹</button><strong>Product</strong><button>♡</button></div>
+      <div class="thumb hero"></div>
+      <h3>Lenova StudyBook 14</h3>
+      <p class="price">R7 499</p>
+      <div class="toast toast-success">
+        <b>✓ Added to cart</b>
+        <p>Lenova StudyBook 14 has been added to your cart.</p>
+        <div class="toast-actions">
+          <button class="mini-link" data-goto="s2-cart">View cart</button>
+          <button class="mini-link" data-goto="s1-results">Continue shopping</button>
+        </div>
       </div>
-    </section>
-  </main>
+      <button class="primary" data-goto="s2-cart">Go to cart</button>
+    </div>
+  </section>
 
-  <footer>
-    <p>Prototype prepared for academic wireframing. Not affiliated with Takealot.</p>
-  </footer>
+  <!-- ============ 12 CART ============ -->
+  <section class="screen" id="s2-cart">
+    <div class="phone">
+      <div class="phone-status">09:46 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s1-detail">‹</button><strong>Cart</strong><button>Help</button></div>
+      <div class="product-card">
+        <div class="thumb"></div>
+        <div>
+          <h4>StudyBook 14</h4>
+          <p>R7 499 • Qty 1</p>
+          <button class="mini-link" data-goto="s2-remove">Remove</button>
+        </div>
+      </div>
+      <div class="summary">
+        <p>Items <b>R7 499</b></p>
+        <p>Delivery <b>Calculated next</b></p>
+        <p>Total <b>R7 499</b></p>
+      </div>
+      <button class="primary" data-goto="s2-checkout">Checkout</button>
+    </div>
+  </section>
+
+  <!-- ============ 13 REMOVE CONFIRM ============ -->
+  <section class="screen" id="s2-remove">
+    <div class="phone">
+      <div class="phone-status">09:46 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-cart">‹</button><strong>Cart</strong><button>Help</button></div>
+      <div class="product-card"><div class="thumb"></div><div><h4>StudyBook 14</h4><p>R7 499 • Qty 1</p></div></div>
+      <div class="modal-overlay">
+        <div class="modal">
+          <h3>Remove this item?</h3>
+          <p class="hint">This action cannot be undone.</p>
+          <button class="primary" data-goto="s2-cart">Remove</button>
+          <button class="secondary" data-goto="s2-cart">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 14 CHECKOUT ============ -->
+  <section class="screen" id="s2-checkout">
+    <div class="phone">
+      <div class="phone-status">09:47 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-cart">‹</button><strong>Checkout</strong><button>1/1</button></div>
+      <div class="progress"><span></span></div>
+      <div class="checkout-block"><h4>1. Delivery address <button class="mini-link" data-goto="s2-address">Edit</button></h4><p>District Six, Cape Town</p></div>
+      <div class="checkout-block"><h4>2. Delivery option</h4><label><input type="radio" name="del" checked /> Tomorrow - R65</label><label><input type="radio" name="del" /> Standard - Free</label></div>
+      <div class="checkout-block"><h4>3. Payment <button class="mini-link" data-goto="s2-payment">Change</button></h4><p>Saved card ending 2048</p></div>
+      <div class="checkout-block"><h4>4. Order summary</h4><p>Total: <b>R7 564</b></p></div>
+      <button class="primary" data-goto="s2-review">Review order</button>
+    </div>
+  </section>
+
+  <!-- ============ 15 EDIT ADDRESS ============ -->
+  <section class="screen" id="s2-address">
+    <div class="phone">
+      <div class="phone-status">09:48 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-checkout">‹</button><strong>Edit address</strong><button>Save</button></div>
+      <label class="input-label">Recipient<input value="Nomsa Dlamini" /></label>
+      <label class="input-label">Street address<input value="District Six Campus" /></label>
+      <label class="input-label">City<input value="Cape Town" /></label>
+      <label class="input-label">Delivery notes<textarea>Call on arrival.</textarea></label>
+      <button class="primary" data-goto="s2-checkout">Save and return</button>
+      <button class="secondary" data-goto="s2-address-error">Show error state</button>
+    </div>
+  </section>
+
+  <!-- ============ 16 ADDRESS ERROR ============ -->
+  <section class="screen" id="s2-address-error">
+    <div class="phone">
+      <div class="phone-status">09:48 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-checkout">‹</button><strong>Edit address</strong><button>Save</button></div>
+      <label class="input-label">Recipient<input value="Nomsa Dlamini" /></label>
+      <label class="input-label error">Street address<input value="" placeholder="Required" /></label>
+      <p class="error-msg">⚠ Please enter your street address.</p>
+      <label class="input-label">City<input value="Cape Town" /></label>
+      <button class="primary" data-goto="s2-checkout">Save and return</button>
+    </div>
+  </section>
+
+  <!-- ============ 17 PAYMENT ============ -->
+  <section class="screen" id="s2-payment">
+    <div class="phone">
+      <div class="phone-status">09:48 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-checkout">‹</button><strong>Payment</strong><button>Help</button></div>
+      <h4>Select payment method</h4>
+      <label class="checkline"><input type="radio" name="pay" checked /> Saved card ending 2048</label>
+      <label class="checkline"><input type="radio" name="pay" /> New card</label>
+      <label class="checkline"><input type="radio" name="pay" /> EFT / voucher</label>
+      <label class="checkline"><input type="radio" name="pay" /> Pay on delivery</label>
+      <button class="primary" data-goto="s2-checkout">Confirm payment</button>
+    </div>
+  </section>
+
+  <!-- ============ 18 REVIEW ============ -->
+  <section class="screen" id="s2-review">
+    <div class="phone">
+      <div class="phone-status">09:49 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-checkout">‹</button><strong>Review order</strong><button>Edit</button></div>
+      <p class="hint">Final confirmation.</p>
+      <div class="product-card"><div class="thumb"></div><div><h4>StudyBook 14</h4><p>R7 499 • Qty 1</p></div></div>
+      <div class="summary">
+        <p>Delivery address <b>Cape Town</b></p>
+        <p>Delivery option <b>Tomorrow</b></p>
+        <p>Payment <b>Card 2048</b></p>
+        <p>Total <b>R7 564</b></p>
+      </div>
+      <button class="primary" id="place-order">Place order</button>
+    </div>
+  </section>
+
+  <!-- ============ 19 PROCESSING ============ -->
+  <section class="screen" id="s2-processing">
+    <div class="phone">
+      <div class="phone-status">09:49 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><strong>Processing order</strong><button>Please wait</button></div>
+      <div class="loading-screen">
+        <div class="spinner"></div>
+        <h3>Processing your order…</h3>
+        <p class="hint center">Do not close this screen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 20 ORDER PLACED ============ -->
+  <section class="screen" id="s2-confirm">
+    <div class="phone">
+      <div class="phone-status">09:50 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><strong>Order placed</strong><button>Done</button></div>
+      <div class="success">✓</div>
+      <h3 class="center">Thank you, Nomsa</h3>
+      <p class="hint center">Your order is confirmed.</p>
+      <div class="timeline">
+        <p><b>Confirmed</b></p>
+        <p>Packing</p>
+        <p>Out for delivery</p>
+      </div>
+      <button class="primary" data-goto="s2-tracking">Track order</button>
+      <button class="secondary" data-goto="welcome">Back to start</button>
+    </div>
+  </section>
+
+  <!-- ============ 21 TRACKING ============ -->
+  <section class="screen" id="s2-tracking">
+    <div class="phone">
+      <div class="phone-status">09:51 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-confirm">‹</button><strong>Track order</strong><button>Help</button></div>
+      <h3>Order #TK-2048</h3>
+      <p class="hint">Estimated delivery: Tomorrow, 10:00–14:00</p>
+      <div class="timeline">
+        <p><b>✓ Confirmed</b> — 09:50</p>
+        <p><b>✓ Packing</b> — 10:15</p>
+        <p><b>→ Out for delivery</b> — in progress</p>
+        <p>Delivered</p>
+      </div>
+      <button class="primary" data-goto="s2-profile">View profile</button>
+    </div>
+  </section>
+
+  <!-- ============ 22 PROFILE ============ -->
+  <section class="screen" id="s2-profile">
+    <div class="phone">
+      <div class="phone-status">09:52 <span>▵ ◌ ▣</span></div>
+      <div class="appbar"><button data-goto="s2-tracking">‹</button><strong>Profile</strong><button>Save</button></div>
+      <div class="profile-head">
+        <div class="avatar">ND</div>
+        <div><h3>Nomsa Dlamini</h3><p class="hint">nomsa@studentmail.co.za</p></div>
+      </div>
+      <h4>Personal details</h4>
+      <label class="input-label">Full name<input value="Nomsa Dlamini" /></label>
+      <label class="input-label">Phone<input value="+27 82 000 0000" /></label>
+      <h4>Saved addresses</h4>
+      <div class="list-card"><span>Home — District Six</span><b>›</b></div>
+      <div class="list-card"><span>Work — CBD</span><b>›</b></div>
+      <h4>Payment methods</h4>
+      <div class="list-card"><span>Card ending 2048</span><b>›</b></div>
+      <h4>Notifications</h4>
+      <label class="checkline"><input type="checkbox" checked /> Order updates</label>
+      <label class="checkline"><input type="checkbox" checked /> Deals and promotions</label>
+      <button class="primary" data-goto="welcome">Sign out</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Prototype prepared for academic wireframing. Not affiliated with Takealot.</p>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
