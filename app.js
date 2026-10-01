@@ -15,7 +15,7 @@ function show(id, pushHistory = true) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Global click delegation — any element with data-goto jumps to that screen
+// Global click delegation
 document.addEventListener('click', e => {
   const target = e.target.closest('[data-goto]');
   if (target) {
@@ -47,7 +47,6 @@ document.getElementById('add-to-cart')?.addEventListener('click', (e) => {
     cartCount += 1;
     updateCartBadge();
     show('s1-addsuccess');
-    // Reset button for next visit
     btn.textContent = 'Add to cart';
     btn.disabled = false;
   }, 900);
@@ -58,8 +57,9 @@ let compareItems = 0;
 document.querySelectorAll('[data-compare]').forEach(btn => {
   btn.addEventListener('click', () => {
     compareItems += 1;
-    document.querySelectorAll('#compare-count, #compare-count-2').forEach(el => el.textContent = compareItems);
-    btn.textContent = '✓ Added to compare';
+    document.querySelectorAll('#compare-count, #compare-count-2')
+      .forEach(el => el.textContent = compareItems);
+    btn.textContent = '✓ Added';
     btn.disabled = true;
     btn.style.opacity = '.6';
   });
@@ -75,6 +75,20 @@ document.querySelectorAll('[data-search]').forEach(el => {
   });
 });
 
+// Prevent Enter in the search box from reloading the page
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const q = searchInput.textContent.trim() || 'laptop under R8000';
+      const target = document.getElementById('results-query');
+      if (target) target.textContent = q;
+      show('s1-results');
+    }
+  });
+}
+
 // ============ FILTERS ============
 document.querySelectorAll('.filter-toggle').forEach(f => {
   f.addEventListener('click', () => f.classList.toggle('on'));
@@ -83,14 +97,11 @@ document.getElementById('reset-filters')?.addEventListener('click', () => {
   document.querySelectorAll('.filter-toggle').forEach(f => f.classList.remove('on'));
 });
 
-// ============ PLACE ORDER → PROCESSING → CONFIRM ============
+// ============ PLACE ORDER ============
 document.getElementById('place-order')?.addEventListener('click', () => {
   show('s2-processing');
   setTimeout(() => show('s2-confirm'), 2200);
 });
-
-// ============ AUTO-ADVANCE PROCESSING IF USER LANDS ON IT ============
-// (covered by place-order handler above)
 
 // ============ INIT ============
 show('welcome', false);
